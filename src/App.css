@@ -1,38 +1,111 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fdda00;
+}
+.calculator {
+  width: 500px;
+  margin: 200px auto;
+
+  border: none;
+  border-radius: 20px;
+}
+
+.display {
+  max-width: 500px;
+  padding: 15px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  background-color: burlywood;
+  border-radius: 20px 20px 0 0;
+  height: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+.number {
+  width: 75%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #d2dcbb;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.result {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.buttons {
+  height: 100%;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: #d8e1e2;
+  border-radius: 0 0 20px 20px;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: none;
+  margin: 5px;
+}
+
+#btn:nth-child(16) {
+  grid-row: span 2;
+  height: 120px;
+}
+
+#btn:nth-child(17) {
+  grid-column: span 2;
+  width: 225px;
+}
+
+.buttons button {
+  transition: background-color 0.3s;
+}
+
+.buttons button.active {
+  /* Klavyeden basılan sayıya ait butonun stilini belirle */
+  background-color: aquamarine;
+}
+
+.buttons button:hover {
+  /* Hover durumunda rengi değiştir */
+  background-color: gray;
+}
+
+.buttons button:active {
+  /* Tuşa basıldığında rengi değiştir */
+  background-color: bisque;
+}
+
+.buttons button:disabled {
+  /* Devre dışı bırakılmış durumda rengi değiştir */
+  background-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Klavye tuşları için özel stiller */
+input[type="text"]:focus + .buttons button {
+  outline: 2px solid #4285f4; /* Klavye odaklandığında düğmelerin etrafında bir çerçeve oluştur */
+}
+
+input[type="text"] + .buttons button:active {
+  background-color: aquamarine; /* Klavye ile tuşa basıldığında rengi değiştir */
 }
